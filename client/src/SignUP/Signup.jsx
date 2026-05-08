@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Galaxy from "../Component/Galaxy";
+import Galaxy from "../component/Galaxy";
 function Signup() {
   const {user} = useSelector(store=>store.auth);
   const [input, setInput] = useState({
