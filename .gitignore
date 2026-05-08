@@ -1,25 +1,4 @@
 # dependencies
-node_modules/
-client/node_modules/
-server/node_modules/
-
-# build output
-client/dist/
-
-# environment variables — never commit secrets
+node_modules
 .env
-.env.local
-.env.production
-server/.env
 
-# logs
-*.log
-npm-debug.log*
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# editor
-.vscode/
-.idea/
