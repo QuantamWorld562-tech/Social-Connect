@@ -1,0 +1,75 @@
+.post-box {
+  background-color: rgb(255, 255, 255);
+  width: 480px;
+  margin-left: 25%;
+  margin-top: 25px;
+  font-family: "Outfit", sans-serif;
+  color: #000000;
+  border-radius: 20px;
+}
+.post-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+.post-profile {
+  display: flex;
+  margin: 2px;
+  padding: 6px;
+}
+.post-name {
+  margin-left: 15px;
+  margin-top: 13px;
+}
+.menu-dot {
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+.posts-pic {
+  width: 480px;
+  height: 500px;
+  margin-top: 13px;
+  border-radius: 5px;
+}
+.post-bottom {
+  margin: 10px 5px;
+  gap: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.post-action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.post-down{
+    padding: 0 15px;
+}
+.action-count {
+  font-size: 14px;
+}
+
+.bo {
+  margin-left: 285px;
+}
+
+.post-profile-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.material-symbols-outlined {
+font-size: 30px;
+}
+
+.so{
+  color: red;
+  font-variation-settings: 'FILL' 1; /* makes it solid */
+}

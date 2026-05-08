@@ -1,0 +1,132 @@
+.create-can {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.create-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+.create-header {
+  display: flex;
+  gap: 15px;
+  font-size: 15px;
+}
+.create-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.create-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  padding: 20px;
+}
+.cross {
+  position: relative;
+  left: 92%;
+  top: -50px;
+  cursor: pointer;
+}
+.create-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.create-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.create-avatar {
+  margin-right: 12px;
+}
+
+.create-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-username {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.create-bio {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-caption {
+  border: 1px solid #b6b5b5;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: black;
+}
+
+.create-post-image {
+  margin-bottom: 15px;
+}
+
+.create-post-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.create-upload-btn,
+.create-submit-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.create-upload-btn {
+  background: #eee;
+}
+
+.create-upload-btn:hover {
+  background: #b8b6b6;
+}
+
+.create-submit-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.create-submit-btn:hover {
+  background: #0056b3;
+}

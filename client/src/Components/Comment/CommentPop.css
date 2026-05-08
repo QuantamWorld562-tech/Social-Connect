@@ -1,0 +1,158 @@
+.comment-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(68, 68, 68, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: "Outfit", sans-serif;
+  z-index: 1000;
+}
+
+.comment-can {
+  width: 75%;
+  max-width: 1000px;
+  height: 640px;
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  animation: slideUp 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden; /* Ensures the image doesn't overflow the rounded corners */
+}
+
+.comment-left {
+  width: 50%;
+  height: 100%;
+  background-color: black;
+}
+
+.comment-left-post {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Shows the full image without stretching */
+}
+
+/* Right panel */
+.comment-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.comment-right-top {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 15px;
+}
+
+.comment-right-bottom {
+  flex-grow: 1;       /* Makes middle section take the remaining space */
+  overflow-y: auto;   /* Scrollable if there are many comments */
+  padding: 15px;
+}
+
+.comment-right-down {
+  border-top: 1px solid #dbdbdb;
+  padding: 15px;
+}
+
+/* Icons and likes line */
+.d1 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* Make action icons larger (default is usually 24px) */
+.d1 .material-symbols-outlined {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.d1 p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Pushes elements to the far right side */
+.to {
+  margin-left: auto;
+}
+
+/* Likes text */
+.likes-count {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Comment input section */
+.comment-add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #dbdbdb;
+  padding-top: 10px;
+}
+
+.comment-add .to {
+  margin-left: 0; /* prevents .to from pushing everything right */
+}
+
+/* Smily face icon size in comment area */
+.comment-add .material-symbols-outlined {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.comment-right-down input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-family: "Outfit", sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.post-btn {
+  color: #0095f6; /* Instagram blue color for Post button */
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: white; /* Changed to white to be easily visible against the dark screen overlay */
+  z-index: 1001;
+  padding: 10px;
+}
+
+/* Close icon size */
+.close-btn .material-symbols-outlined {
+  font-size: 30px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

@@ -1,0 +1,280 @@
+.chat-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  color: #000;
+}
+
+/* ── Left sidebar ── */
+.chat {
+  width: 360px;
+  min-width: 280px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+  background: #fff;
+  overflow-y: auto;
+  color: #000;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-top {
+  padding: 20px 16px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+}
+
+.chat-top h2 {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.chat-search {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #efefef;
+  margin: 0 16px 12px;
+  box-shadow: 2.5px 3px 0 #000;
+}
+
+.chat-search input {
+  border: none;
+  outline: none;
+  margin-left: 8px;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  color: #000;
+}
+
+.chat-search input::placeholder {
+  color: #999;
+}
+
+.chat-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 12px;
+}
+
+.chat-me-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+.chat-bottom {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat-bottom-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+}
+
+/* user row */
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.user-box:hover {
+  background: #f5f5f5;
+}
+.user-box.active-user {
+  background: #efefef;
+}
+
+.user-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.dot-green {
+  background: #22c55e;
+}
+.dot-grey {
+  background: #ff0202;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+}
+
+.user-status {
+  font-size: 12px;
+}
+
+.green {
+  color: #22c55e;
+  font-weight: 600;
+}
+.grey {
+  color: #fc0404;
+}
+
+/* ── Right panel ── */
+.message-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-pg {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* header */
+.pg-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pg-top-avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.pg-top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pg-top-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* input bar */
+.pg-end {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-top: 1px solid #e0e0e0;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.pg-end input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 22px;
+  outline: none;
+  font-size: 14px;
+  background: #dedede;
+  color: #000;
+}
+
+.pg-end input::placeholder {
+  color: #999;
+}
+
+.pg-end input:focus {
+  border-color: #bbb;
+  background: #efefef;
+}
+
+.pg-end button {
+  background: none;
+  border: none;
+  color: #0095f6;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.15s;
+}
+
+.pg-end button:hover:not(:disabled) {
+  color: #1877f2;
+}
+.pg-end button:disabled {
+  color: #a8d4f5;
+  cursor: default;
+}
+
+/* empty state */
+.no-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #999;
+}
+
+.no-chat-icon {
+  font-size: 64px;
+  color: #000;
+}
+.no-chat h3 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+}
+.no-chat p {
+  font-size: 14px;
+  color: #888;
+}

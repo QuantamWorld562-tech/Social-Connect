@@ -1,0 +1,65 @@
+.suggested-users {
+  margin: 2.5rem 0; /* my-10 */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem; /* text-sm */
+}
+
+.title {
+  font-weight: 600;
+  color: #4b5563; /* gray-600 */
+}
+
+.see-all {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.25rem 0; /* my-5 */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.username a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bio {
+  color: #4b5563; /* gray-600 */
+  font-size: 0.875rem;
+}
+
+.follow-btn {
+  color: #3BADF8;
+  font-size: 0.75rem; /* text-xs */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.follow-btn:hover {
+  color: #3495d6;
+}

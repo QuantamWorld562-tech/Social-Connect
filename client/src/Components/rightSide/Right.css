@@ -1,0 +1,32 @@
+.right-sidebar {
+  width: fit-content;
+  margin-top:20px;
+  margin-left: 50px;
+  padding-right: 8rem;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 0.875rem; /* text-sm */
+}
+
+.username a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bio {
+  color: #4b5563; /* gray-600 */
+  font-size: 0.875rem;
+}

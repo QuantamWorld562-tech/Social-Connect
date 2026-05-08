@@ -1,0 +1,23 @@
+.posts-layout {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  
+}
+
+.posts-feed {
+  flex: 1;
+  max-width: 600px;
+}
+
+.posts-right {
+  background-color: rgba(0, 0, 0, 0.373);
+  width: 320px;
+  min-width: 280px;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  left:80px;
+}

@@ -1,0 +1,149 @@
+.prof-box {
+  margin: 20px;
+  align-items: center;
+  color: black;
+  min-height: 100vh;
+  background-color: #fcfcfc;
+  padding-bottom: 60px;
+  box-sizing: content-box;
+}
+
+.prof-top {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+.prof-top-right {
+  margin-left: 30px;
+  color: #000;
+}
+
+.b {
+  font-weight: 600;
+  color: #000;
+}
+
+.prof-top-right div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.prof-btn {
+  margin-right: 10px;
+  margin-top: 30px;
+  padding: 10px 100px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background-color: #c6c6c6;
+}
+
+.prof-btn:hover {
+  background-color:black;
+  color: white;
+}
+
+.min {
+  position: relative;
+  top: 7px;
+  left: -3px;
+  font-size: 20px;
+}
+
+.prof-follow-btn {
+  margin-right: 10px;
+  padding: 10px 100px;
+  border-radius: 15px;
+  border: none;
+  background-color: #0095f6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prof-follow-btn:hover {
+  background-color: #1877f2;
+}
+
+.c {
+  margin-left: 220px;
+  margin-top: 30px;
+}
+
+.ci {
+  margin-left: 265px;
+  color: #000;
+}
+
+.prof-bottom {
+  margin: 0 250px;
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+.prof-end {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0 20px;
+}
+
+.grey {
+  font-size: 32px;
+  cursor: pointer;
+  font-variation-settings: "wght" 300;
+  transition: all 0.2s ease;
+  color: #979797;
+}
+
+.material-symbols-outlined.active {
+  font-variation-settings: "wght" 600;
+  color: #000;
+}
+
+.post {
+  width: 320px;
+  height: 400px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.prof-tab-icon{
+  color: #c6c6c6;
+}
+
+.post-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.post:hover .post-overlay {
+  opacity: 1;
+}
