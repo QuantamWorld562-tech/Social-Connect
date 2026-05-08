@@ -22,7 +22,7 @@ app.use(cookieparser());
 app.use(urlencoded({ extended: true }));  //urlenocoed helps the server understand data sent from HTML forms.
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.URL,
   credentials: true,
 };
 app.use(cors(corsOptions));

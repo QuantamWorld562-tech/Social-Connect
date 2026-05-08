@@ -3,6 +3,7 @@ import axios from "axios";
 import Avatar from "react-avatar";
 import { useNavigate } from "react-router-dom";
 import "./Search.css";
+import { BASE_URL } from "../../lib/config";
 
 function Search({ onClose }) {
   const [query, setQuery] = useState("");
@@ -23,8 +24,8 @@ function Search({ onClose }) {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/user/search?query=${encodeURIComponent(query)}`,
-          { withCredentials: true }
+          `${BASE_URL}/api/user/search?query=${encodeURIComponent(query)}`,
+          { withCredentials: true },
         );
         if (res.data.success) setResults(res.data.users);
       } catch (err) {
@@ -45,7 +46,12 @@ function Search({ onClose }) {
   return (
     <div className="search-panel">
       <h2 className="search-title">Search</h2>
-       <span onClick={onClose} className="material-symbols-outlined search-icon cross">close</span>
+      <span
+        onClick={onClose}
+        className="material-symbols-outlined search-icon cross"
+      >
+        close
+      </span>
       <div className="search-input-wrap">
         <span className="material-symbols-outlined search-icon">search</span>
         <input

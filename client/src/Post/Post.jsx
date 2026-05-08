@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPosts, setSelectedPost } from "../redux/postSlice";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { BASE_URL } from "../lib/config";
 
 const Post = ({ post }) => {
   const { user } = useSelector((store) => store.auth);
@@ -29,7 +30,7 @@ const Post = ({ post }) => {
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.post(
-        `http://localhost:5000/api/post/${post._id}/${action}`,
+        `${BASE_URL}/api/post/${post._id}/${action}`,
         {},
         { withCredentials: true },
       );
@@ -61,7 +62,7 @@ const Post = ({ post }) => {
   const bookmarkHandler = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/post/${post?._id}/bookmark`,
+        `${BASE_URL}/api/post/${post?._id}/bookmark`,
         { withCredentials: true },
       );
       if (res.data.success) {

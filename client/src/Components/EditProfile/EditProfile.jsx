@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { setAuthUser } from "../../redux/authSlice";
+import { BASE_URL } from "../../lib/config";
 
 function EditProfile() {
   const imageRef = useRef();
@@ -40,7 +41,7 @@ function EditProfile() {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/api/user/profile/edit",
+        `${BASE_URL}/api/user/profile/edit`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

@@ -7,6 +7,7 @@ import { setSocket } from "./redux/socketSlice";
 import { setOnlineUsers } from "./redux/chatSlice";
 import { setLikeNotification } from "./redux/rtnSlice";
 import ProtectedRoutes from "./Components/ProtectedRoutes";
+import { BASE_URL } from "./lib/config";
 
 // static imports — small, always needed
 import Login from "./Login/Login";
@@ -119,7 +120,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io("http://localhost:5000", {
+      const socketio = io(BASE_URL, {
         query: { userId: user?._id },
         transports: ["websocket"],
       });

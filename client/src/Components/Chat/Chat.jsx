@@ -7,6 +7,7 @@ import Avatar from "react-avatar";
 import Message from "../message/Message";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../lib/config";
 
 
 function Chat() {
@@ -20,7 +21,7 @@ function Chat() {
     if (!textMessage.trim()) return;
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/message/send/${receiverId}`,
+        `${BASE_URL}/api/message/send/${receiverId}`,
         { textMessage },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );

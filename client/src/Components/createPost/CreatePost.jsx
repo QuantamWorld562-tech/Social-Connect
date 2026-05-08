@@ -7,10 +7,7 @@ import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../redux/postSlice";
-
-
-
-function CreatePost({ open, setOpen }) {
+import { BASE_URL } from "../../lib/config";function CreatePost({ open, setOpen }) {
   const imageRef = useRef();
   const [file, setFile] = useState("");
   const [caption, setCaption] = useState("");
@@ -39,7 +36,7 @@ function CreatePost({ open, setOpen }) {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/api/post/addpost",
+        `${BASE_URL}/api/post/addpost`,
         formData,
         {
           headers: {

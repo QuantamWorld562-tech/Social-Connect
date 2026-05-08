@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { setPosts } from "../../redux/postSlice";
+import { BASE_URL } from "../../lib/config";
 
 const PostTop = ({post, handleMouseEnter, handleMouseLeave, showPopup }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -28,7 +29,7 @@ const PostTop = ({post, handleMouseEnter, handleMouseLeave, showPopup }) => {
   const deletePost = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/post/delete/${post._id}`,
+        `${BASE_URL}/api/post/delete/${post._id}`,
         { withCredentials: true }
       );
       if (res.data.success) {

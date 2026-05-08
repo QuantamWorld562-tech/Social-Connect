@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearNotifications } from "../redux/rtnSlice";
 import { logout } from "../redux/authSlice";
 import logo from "../assets/logo.webp";
+import { BASE_URL } from "../lib/config";
 
 const sidebarItems = [
   { icon: <span className="material-symbols-outlined">home</span>, text: "Home" },
@@ -35,7 +36,7 @@ function Leftsidebar() {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/user/logout", {
+      const res = await axios.get(`${BASE_URL}/api/user/logout`, {
         withCredentials: true,
       });
       if (res.data.success) {

@@ -6,6 +6,7 @@ import { Loader2 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "../redux/authSlice";
+import { BASE_URL } from "../lib/config";
 
 const Hyperspeed = lazy(() => import("../component/Hyperspeed"));
 
@@ -28,7 +29,7 @@ function Login() {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/api/user/login",
+        `${BASE_URL}/api/user/login`,
         input,
         {
           headers: {

@@ -6,6 +6,7 @@ import { setPosts } from "../../redux/postSlice";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import Comment from "../Comment";
+import { BASE_URL } from "../../lib/config";
 const CommentPop = ({ isOpen, onClose, post,liked,setLiked,postLike,setPostLike }) => {
   const { posts } = useSelector((store) => store.post);
   const { user } = useSelector((store) => store.auth);
@@ -25,7 +26,7 @@ const CommentPop = ({ isOpen, onClose, post,liked,setLiked,postLike,setPostLike 
     if (!text.trim()) return;
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/post/${post._id}/comment`,
+        `${BASE_URL}/api/post/${post._id}/comment`,
         { text },
         {
           headers: { "Content-Type": "application/json" },
@@ -54,7 +55,7 @@ const CommentPop = ({ isOpen, onClose, post,liked,setLiked,postLike,setPostLike 
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.post(
-        `http://localhost:5000/api/post/${post._id}/${action}`,
+        `${BASE_URL}/api/post/${post._id}/${action}`,
         {},
         { withCredentials: true }
       );

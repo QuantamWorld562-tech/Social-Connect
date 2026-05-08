@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { setUserProfile } from "./redux/authSlice";
+import { BASE_URL } from "./lib/config";
 
 function Profile() {
   const params = useParams();
@@ -24,7 +25,7 @@ function Profile() {
   const handleFollowUnfollow = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/user/followorunfollow/${userProfile._id}`,
+        `${BASE_URL}/api/user/followorunfollow/${userProfile._id}`,
         {},
         { withCredentials: true }
       );
