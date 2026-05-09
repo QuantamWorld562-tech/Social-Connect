@@ -65,6 +65,7 @@ function Leftsidebar() {
     }
     else if (textType === "Notifications") {
       setShowNotif((prev) => !prev);
+      setActiveItem(prevActiveItem);
     }
   };
 
