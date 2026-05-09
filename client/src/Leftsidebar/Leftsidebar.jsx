@@ -80,7 +80,7 @@ function Leftsidebar() {
     <div className="left-can">
       {/* Desktop sidebar */}
       <div className="left-box">
-        <img src={logo.webp} alt="logo" className="logo" />
+        <img src="/logo.webp" alt="logo" className="logo" />
 
         {sidebarItems.map((item, index) => (
           <div
