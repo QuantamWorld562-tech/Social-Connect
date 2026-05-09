@@ -30,6 +30,8 @@ function Leftsidebar() {
   const [showSearch, setShowSearch] = useState(false);
  
 
+  const [showNotif, setShowNotif] = useState(false);
+
   const { user } = useSelector((store) => store.auth);
   const { likeNotification } = useSelector((store) => store.realTimeNotification);
   const dispatch = useDispatch();
@@ -62,8 +64,7 @@ function Leftsidebar() {
       setShowSearch(true);
     }
     else if (textType === "Notifications") {
-      setPrevActiveItem(activeItem);
-      setActiveItem(prevActiveItem);
+      setShowNotif((prev) => !prev);
     }
   };
 
@@ -96,27 +97,6 @@ function Leftsidebar() {
                 {likeNotification.length > 0 && (
                   <span className="notif-badge">{likeNotification.length}</span>
                 )}
-                <div className="notif-popup" onMouseLeave={() => dispatch(clearNotifications())}>
-                  <p className="notif-popup-title">Notifications</p>
-                  {likeNotification.length === 0 ? (
-                    <p className="notif-empty">No new notifications</p>
-                  ) : (
-                    likeNotification.map((notification) => (
-                      <div key={notification.userId} className="notif-item">
-                        <img
-                          src={notification.userDetails?.profilePicture}
-                          alt={notification.userDetails?.username}
-                          className="notif-avatar"
-                          onError={(e) => (e.target.style.display = "none")}
-                        />
-                        <div className="notif-info">
-                          <span className="notif-username">{notification.userDetails?.username}</span>
-                          <span className="notif-text">liked your post</span>
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
               </>
             )}
           </div>
@@ -125,6 +105,34 @@ function Leftsidebar() {
 
       <CreatePost open={open} setOpen={setOpen} />
       {showSearch && <Search onClose={() => { setShowSearch(false); setActiveItem(prevActiveItem); }} />}
+
+      {/* Notification popup — outside left-box so overflow:auto doesn't clip it */}
+      {showNotif && (
+        <div
+          className="notif-popup-fixed"
+          onMouseLeave={() => { dispatch(clearNotifications()); setShowNotif(false); }}
+        >
+          <p className="notif-popup-title">Notifications</p>
+          {likeNotification.length === 0 ? (
+            <p className="notif-empty">No new notifications</p>
+          ) : (
+            likeNotification.map((notification) => (
+              <div key={notification.userId} className="notif-item">
+                <img
+                  src={notification.userDetails?.profilePicture}
+                  alt={notification.userDetails?.username}
+                  className="notif-avatar"
+                  onError={(e) => (e.target.style.display = "none")}
+                />
+                <div className="notif-info">
+                  <span className="notif-username">{notification.userDetails?.username}</span>
+                  <span className="notif-text">liked your post</span>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
 
       {/* Mobile bottom nav */}
       <div className="bottom-nav">

@@ -16,6 +16,7 @@
     0 6px 20px 0 rgba(0, 0, 0, 0.29);
   z-index: 100;
   overflow-y: auto;
+  overflow-x: visible; /* allow popup to escape horizontally */
 }
 
 .left-box *, .left-box *::before, .left-box *::after {
@@ -71,27 +72,39 @@
 }
 
 .notif-popup {
-  display: none;
-  position: absolute;
-  left: calc(100% + 12px);
+  display: none; /* kept for legacy, not used */
+}
+
+/* New popup — fixed position so it's never clipped by sidebar overflow */
+.notif-popup-fixed {
+  position: fixed;
+  left: 262px;           /* right edge of sidebar (250px) + 12px gap */
   top: 50%;
   transform: translateY(-50%);
   background: #fff;
   border: 2px double #ed6503;
   border-radius: 12px;
   padding: 14px;
-  min-width: 260px;
-  max-height: 320px;
+  min-width: 280px;
+  max-height: 400px;
   overflow-y: auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  z-index: 11;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 200;          /* above everything */
   pointer-events: all;
+  animation: notifSlideIn 0.15s ease;
+}
+
+@keyframes notifSlideIn {
+  from { opacity: 0; transform: translateY(-50%) translateX(-8px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
 }
 
 .notif-row {
   position: relative;
 }
 
+/* Also show on hover via CSS (backup for click toggle) */
+.notif-row:hover ~ .notif-popup-fixed,
 .notif-row:hover .notif-popup {
   display: block;
 }
