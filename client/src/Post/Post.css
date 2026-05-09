@@ -7,6 +7,7 @@
   color: #000000;
   border-radius: 20px;
 }
+
 .post-top {
   position: relative;
   display: flex;
@@ -14,15 +15,18 @@
   cursor: pointer;
   padding: 5px;
 }
+
 .post-profile {
   display: flex;
   margin: 2px;
   padding: 6px;
 }
+
 .post-name {
   margin-left: 15px;
   margin-top: 13px;
 }
+
 .menu-dot {
   margin-left: auto;
   margin-right: 15px;
@@ -35,6 +39,7 @@
   margin-top: 13px;
   border-radius: 5px;
 }
+
 .post-bottom {
   margin: 10px 5px;
   gap: 12px;
@@ -43,20 +48,23 @@
   align-items: center;
   padding: 0 5px;
 }
+
 .post-action {
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.post-down{
-    padding: 0 15px;
+
+.post-down {
+  padding: 0 15px;
 }
+
 .action-count {
   font-size: 14px;
 }
 
 .bo {
-  margin-left: 285px;
+  margin-left: auto; /* push bookmark to right */
 }
 
 .post-profile-wrap {
@@ -65,11 +73,35 @@
   align-items: center;
   cursor: pointer;
 }
+
 .material-symbols-outlined {
-font-size: 30px;
+  font-size: 30px;
 }
 
-.so{
+.so {
   color: red;
-  font-variation-settings: 'FILL' 1; /* makes it solid */
+  font-variation-settings: 'FILL' 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .post-box {
+    width: 100%;        /* full width on mobile */
+    margin-left: 0;     /* remove the 25% left margin */
+    margin-top: 12px;
+    border-radius: 0;   /* edge-to-edge like Instagram mobile */
+  }
+
+  .posts-pic {
+    width: 100%;        /* image fills the post */
+    height: auto;       /* maintain aspect ratio */
+    min-height: 300px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .posts-pic {
+    min-height: 250px;
+  }
 }

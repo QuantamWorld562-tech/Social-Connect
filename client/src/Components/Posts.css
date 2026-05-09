@@ -4,7 +4,6 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 16px;
-  
 }
 
 .posts-feed {
@@ -19,5 +18,22 @@
   position: sticky;
   top: 20px;
   align-self: flex-start;
-  left:80px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .posts-layout {
+    flex-direction: column; /* stack vertically */
+    padding: 10px 8px;
+    gap: 0;
+  }
+
+  .posts-feed {
+    max-width: 100%; /* take full width */
+    width: 100%;
+  }
+
+  .posts-right {
+    display: none; /* hide right sidebar on mobile */
+  }
 }

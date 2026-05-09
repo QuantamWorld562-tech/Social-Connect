@@ -8,7 +8,7 @@ import Search from "../Components/search/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { clearNotifications } from "../redux/rtnSlice";
 import { logout } from "../redux/authSlice";
-import logo from "../assets/logo.webp";
+// import logo from "../assets/logo.webp";
 import { BASE_URL } from "../lib/config";
 
 const sidebarItems = [
@@ -67,10 +67,20 @@ function Leftsidebar() {
     }
   };
 
+  // Bottom nav shows only key items on mobile
+  const bottomNavItems = [
+    { icon: <span className="material-symbols-outlined">home</span>, text: "Home" },
+    { icon: <span className="material-symbols-outlined">search</span>, text: "Search" },
+    { icon: <span className="material-symbols-outlined">image_arrow_up</span>, text: "Create" },
+    { icon: <span className="material-symbols-outlined">chat_bubble</span>, text: "Message" },
+    { icon: <span className="material-symbols-outlined">account_box</span>, text: "Profile" },
+  ];
+
   return (
     <div className="left-can">
+      {/* Desktop sidebar */}
       <div className="left-box">
-        <img src={logo} alt="logo" className="logo" />
+        <img src={logo.webp} alt="logo" className="logo" />
 
         {sidebarItems.map((item, index) => (
           <div
@@ -115,6 +125,20 @@ function Leftsidebar() {
 
       <CreatePost open={open} setOpen={setOpen} />
       {showSearch && <Search onClose={() => { setShowSearch(false); setActiveItem(prevActiveItem); }} />}
+
+      {/* Mobile bottom nav */}
+      <div className="bottom-nav">
+        {bottomNavItems.map((item, index) => (
+          <div
+            key={index}
+            className={`left ${activeItem === item.text ? "left-active" : ""}`}
+            onClick={() => sidebarHandler(item.text)}
+          >
+            {item.icon}
+            <span className="left-text">{item.text}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

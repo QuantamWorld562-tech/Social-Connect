@@ -5,7 +5,6 @@
   min-height: 100vh;
   background-color: #fcfcfc;
   padding-bottom: 60px;
-  box-sizing: content-box;
 }
 
 .prof-top {
@@ -14,6 +13,8 @@
   align-items: center;
   margin-left: 200px;
   margin-top: 20px;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  gap: 20px;
 }
 
 .prof-top-right {
@@ -35,7 +36,7 @@
 .prof-btn {
   margin-right: 10px;
   margin-top: 30px;
-  padding: 10px 100px;
+  padding: 10px 40px; /* reduced from 100px */
   border-radius: 15px;
   border: none;
   cursor: pointer;
@@ -43,7 +44,7 @@
 }
 
 .prof-btn:hover {
-  background-color:black;
+  background-color: black;
   color: white;
 }
 
@@ -56,7 +57,8 @@
 
 .prof-follow-btn {
   margin-right: 10px;
-  padding: 10px 100px;
+  margin-top: 30px;
+  padding: 10px 40px;
   border-radius: 15px;
   border: none;
   background-color: #0095f6;
@@ -66,16 +68,6 @@
 
 .prof-follow-btn:hover {
   background-color: #1877f2;
-}
-
-.c {
-  margin-left: 220px;
-  margin-top: 30px;
-}
-
-.ci {
-  margin-left: 265px;
-  color: #000;
 }
 
 .prof-bottom {
@@ -92,12 +84,12 @@
 .prof-end {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px;
-  margin: 0 20px;
+  gap: 4px;
+  margin: 10px 20px;
 }
 
-.grey {
-  font-size: 32px;
+.prof-tab-icon {
+  font-size: 28px;
   cursor: pointer;
   font-variation-settings: "wght" 300;
   transition: all 0.2s ease;
@@ -123,9 +115,6 @@
   object-fit: cover;
   display: block;
 }
-.prof-tab-icon{
-  color: #c6c6c6;
-}
 
 .post-overlay {
   position: absolute;
@@ -146,4 +135,50 @@
 
 .post:hover .post-overlay {
   opacity: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .prof-top {
+    margin-left: 0;       /* remove fixed left margin */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .prof-top-right {
+    margin-left: 0;
+  }
+
+  .prof-top-right div {
+    justify-content: center;
+  }
+
+  .prof-btn,
+  .prof-follow-btn {
+    padding: 10px 30px;   /* smaller padding on mobile */
+  }
+
+  .prof-bottom {
+    margin: 0 20px;       /* remove the 250px fixed margin */
+    margin-top: 20px;
+  }
+
+  .prof-end {
+    margin: 10px 4px;
+    gap: 2px;
+  }
+
+  /* 2-column grid on mobile */
+  .post {
+    width: calc(50% - 2px);
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    width: calc(33.33% - 2px); /* 3 columns like Instagram mobile */
+    height: 120px;
+  }
 }

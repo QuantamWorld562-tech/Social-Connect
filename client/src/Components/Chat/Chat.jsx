@@ -94,12 +94,19 @@ function Chat() {
         </div>
       </div>
 
-      {/* Right: message panel */}
-      <div className="message-panel">
+      {/* Right: message panel — gets .active on mobile when user selected */}
+      <div className={`message-panel ${selectedUser ? "active" : ""}`}>
         {selectedUser ? (
           <div className="chat-pg">
-            <div className="pg-top"  onClick={() => handleUserClick(user._id)}>
-              <div className="pg-top-avatar">
+            <div className="pg-top">
+              {/* Back button — only visible on mobile via CSS */}
+              <button
+                className="chat-back-btn"
+                onClick={() => dispatch(setSelectedUser(null))}
+              >
+                <span className="material-symbols-outlined">arrow_back</span>
+              </button>
+              <div className="pg-top-avatar" onClick={() => navigate(`/profile/${selectedUser._id}`)}>
                 <Avatar
                   src={selectedUser?.profilePicture}
                   name={selectedUser?.username}

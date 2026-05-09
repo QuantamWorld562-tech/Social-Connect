@@ -1,3 +1,13 @@
+/* ── Global reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden; /* prevents horizontal scroll on mobile */
+}
 
 @keyframes spin {
   to { transform: rotate(360deg); }

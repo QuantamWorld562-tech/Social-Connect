@@ -1,57 +1,60 @@
-
 .left-can {
   background-color: white;
   box-sizing: border-box;
 }
+
 .left-box {
   position: fixed;
   padding: 30px;
   background-color: black;
-  color:#8b8b8b;
+  color: #8b8b8b;
   width: 250px;
   height: 100vh;
   box-sizing: border-box;
   box-shadow:
     0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.29);
-    z-index: 10;
+  z-index: 100;
+  overflow-y: auto;
 }
+
 .left-box *, .left-box *::before, .left-box *::after {
   box-sizing: border-box;
 }
-/* .logo-name {
-  font-family: "Sofia", cursive;
-  font-size: 60px;
-  color:#fd6a02;
-} */
-.logo{
+
+.logo {
   width: 120px;
 }
+
 .left {
   margin-top: 30px;
   padding-right: 35px;
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: width 2s ease-in;
+  transition: all 0.2s ease;
+  position: relative;
 }
+
 .left-text {
   font-size: 20px;
   margin-left: 5px;
   font-family: cursive;
 }
-.left-active{
+
+.left-active {
   background-color: white;
   padding: 8px;
   border-radius: 5px;
-  color:black;
+  color: black;
 }
 
-.left:hover{
- border: 1px double white;
+.left:hover {
+  border: 1px double white;
   padding: 8px;
   border-radius: 5px;
 }
+
 .notif-badge {
   margin-left: auto;
   height: 20px;
@@ -67,7 +70,6 @@
   justify-content: center;
 }
 
-/* the popup — hidden by default, shown on row hover */
 .notif-popup {
   display: none;
   position: absolute;
@@ -86,7 +88,6 @@
   pointer-events: all;
 }
 
-/* show popup when hovering the notifications row */
 .notif-row {
   position: relative;
 }
@@ -147,4 +148,52 @@
   color: #9ca3af;
   margin: 4px 0 0 0;
   text-align: center;
+}
+
+/* ── BOTTOM NAV (mobile only, hidden on desktop) ── */
+.bottom-nav {
+  display: none; /* hidden on desktop */
+}
+
+/* ── RESPONSIVE: tablet & mobile ── */
+@media (max-width: 768px) {
+  /* Hide the left sidebar completely */
+  .left-box {
+    display: none;
+  }
+
+  /* Show bottom nav bar */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: #000;
+    z-index: 100;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #333;
+  }
+
+  .bottom-nav .left {
+    margin-top: 0;
+    padding-right: 0;
+    flex-direction: column;
+    align-items: center;
+    color: #8b8b8b;
+    font-size: 10px;
+  }
+
+  .bottom-nav .left-text {
+    display: none; /* hide text labels on mobile, show only icons */
+  }
+
+  .bottom-nav .left-active {
+    background: transparent;
+    color: white;
+    padding: 0;
+    border: none;
+  }
 }

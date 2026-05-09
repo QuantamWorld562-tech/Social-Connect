@@ -2,20 +2,18 @@
   display: flex;
   height: 100%;
   position: relative;
-overflow: hidden;
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
   overflow-y: auto;
   background-color: transparent;
-  margin-left: 250px;
+  margin-left: 250px; /* offset for the fixed sidebar */
   position: relative;
   z-index: 1;
-  
 }
 
-/* sits behind everything — full screen background */
 .floating-bg {
   position: fixed;
   top: 0;
@@ -25,4 +23,12 @@ overflow: hidden;
   z-index: 0;
   pointer-events: none;
   background-color: #000;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;        /* no sidebar on mobile */
+    padding-bottom: 64px;  /* space for bottom nav bar */
+  }
 }
