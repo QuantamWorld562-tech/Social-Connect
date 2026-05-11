@@ -136,13 +136,14 @@
 .post:hover .post-overlay {
   opacity: 1;
 }
-.log{
-  display: none;
+.log {
+  display: none; /* hidden on desktop — sidebar has logout */
 }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .prof-top {
-    margin-left: 0;       /* remove fixed left margin */
+    margin-left: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -158,11 +159,11 @@
 
   .prof-btn,
   .prof-follow-btn {
-    padding: 10px 30px;   /* smaller padding on mobile */
+    padding: 10px 30px;
   }
 
   .prof-bottom {
-    margin: 0 20px;       /* remove the 250px fixed margin */
+    margin: 0 20px;
     margin-top: 20px;
   }
 
@@ -171,16 +172,27 @@
     gap: 2px;
   }
 
-  /* 2-column grid on mobile */
   .post {
     width: calc(50% - 2px);
     height: 180px;
   }
-  .log{
-    display: initial;
-    position: relative;
-    left:0;
-    top:-30vh;
+
+  /* Show logout icon on mobile since sidebar is hidden */
+  .log {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 28px;
+    color: #e53e3e;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+  }
+
+  .log:hover {
+    background: rgba(229, 62, 62, 0.1);
   }
 }
 

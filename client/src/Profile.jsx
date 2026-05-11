@@ -1,12 +1,12 @@
 import "./Profile.css";
 import Avatar from "react-avatar";
 import useGetUserProfile from "./hooks/useGetUserProfile";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { setUserProfile } from "./redux/authSlice";
+import { setUserProfile, logout } from "./redux/authSlice";
 import { BASE_URL } from "./lib/config";
 
 function Profile() {
@@ -17,7 +17,23 @@ function Profile() {
 
   const { userProfile, user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("grid");
+
+  const logoutHandler = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL}/api/user/logout`, {
+        withCredentials: true,
+      });
+      if (res.data.success) {
+        dispatch(logout());
+        navigate("/login");
+        toast.success(res.data.message);
+      }
+    } catch (error) {
+      toast.error("Logout failed");
+    }
+  };
 
   const isLoggedInUserProfile = user?._id === userProfile?._id;
   const isFollowing = userProfile?.followers?.includes(user?._id);
@@ -100,7 +116,7 @@ function Profile() {
               Follow
             </button>
           )}
-          <span class="material-symbols-outlined log">logout</span>
+          <span className="material-symbols-outlined log" onClick={logoutHandler}>logout</span>
         </div>
       </div>
 
