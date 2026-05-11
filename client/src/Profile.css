@@ -179,8 +179,8 @@
   .log{
     display: initial;
     position: relative;
-    left:22vh;
-    top:-45vh;
+    left:0;
+    top:-30vh;
   }
 }
 
