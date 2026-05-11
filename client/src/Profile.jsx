@@ -19,7 +19,7 @@ function Profile() {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("grid");
 
-  const isLoggedInUserProfile = user?._id=== userProfile?._id ;
+  const isLoggedInUserProfile = user?._id === userProfile?._id;
   const isFollowing = userProfile?.followers?.includes(user?._id);
 
   const handleFollowUnfollow = async () => {
@@ -27,14 +27,16 @@ function Profile() {
       const res = await axios.post(
         `${BASE_URL}/api/user/followorunfollow/${userProfile._id}`,
         {},
-        { withCredentials: true }
+        { withCredentials: true },
       );
       if (res.data.success) {
         // update followers list in redux so UI reflects immediately
         const updatedFollowers = isFollowing
           ? userProfile.followers.filter((id) => id !== user._id)
           : [...userProfile.followers, user._id];
-        dispatch(setUserProfile({ ...userProfile, followers: updatedFollowers }));
+        dispatch(
+          setUserProfile({ ...userProfile, followers: updatedFollowers }),
+        );
         toast.success(res.data.message);
       }
     } catch (error) {
@@ -74,7 +76,7 @@ function Profile() {
               following
             </p>
           </div>
-          <p >{userProfile?.bio || "bio here...."}</p>
+          <p>{userProfile?.bio || "bio here...."}</p>
 
           {isLoggedInUserProfile ? (
             <>
@@ -94,12 +96,13 @@ function Profile() {
               <button className="prof-btn">Message</button>
             </>
           ) : (
-            <button className="prof-follow-btn" onClick={handleFollowUnfollow}>Follow</button>
+            <button className="prof-follow-btn" onClick={handleFollowUnfollow}>
+              Follow
+            </button>
           )}
+          <span class="material-symbols-outlined log">logout</span>
         </div>
       </div>
-
-    
 
       <div className="prof-bottom">
         <span

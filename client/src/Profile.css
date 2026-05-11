@@ -136,7 +136,9 @@
 .post:hover .post-overlay {
   opacity: 1;
 }
-
+.log{
+  display: none;
+}
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .prof-top {
@@ -173,6 +175,12 @@
   .post {
     width: calc(50% - 2px);
     height: 180px;
+  }
+  .log{
+    display: initial;
+    position: relative;
+    left:22vh;
+    top:-45vh;
   }
 }
 
