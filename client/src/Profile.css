@@ -182,17 +182,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 16px;
+    position: fixed;      /* fixed to viewport */
+    top: 12px;            /* top right corner */
+    right: 12px;
     font-size: 28px;
     color: #e53e3e;
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+    z-index: 999;
     transition: background 0.2s ease;
   }
 
   .log:hover {
-    background: rgba(229, 62, 62, 0.1);
+    background: rgba(229, 62, 62, 0.15);
   }
 }
 
